@@ -65,6 +65,8 @@ jobs:
           additional_permissions: |
             actions: read
           claude_args: >-
+            --model claude-opus-5-5
+            --effort high
             --max-turns 40
             --append-system-prompt "Follow AGENTS.md and read .github/CLAUDE_AUTOMATION.md before working. Never push to the default branch, merge a PR, deploy, publish, apply migrations, change production data, or access credentials. Report blockers instead."
       - name: Open a pull request for issue changes
