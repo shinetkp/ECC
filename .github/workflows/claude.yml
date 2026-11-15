@@ -77,7 +77,8 @@ jobs:
         env:
           CLAUDE_BRANCH: ${{ steps.claude.outputs.branch_name }}
         with:
-          github-token: ${{ steps.claude.outputs.github_token }}
+          # The Claude action revokes its app token before this step runs; use the job token.
+          github-token: ${{ github.token }}
           script: |
             const { owner, repo } = context.repo;
             const issue = context.payload.issue;
